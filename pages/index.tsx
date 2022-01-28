@@ -36,34 +36,65 @@ const Home: NextPage = () => {
             </div>
             <div
               style={{
-                gap: 20,
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
+                padding: "0px 50px",
               }}
             >
-              {gamepad.buttons.map((b, i) => {
-                return (
-                  <div
-                    style={{
-                      padding: 5,
-                      display: "flex",
-                      alignItems: "center",
-                      flexDirection: "column",
-                      backgroundColor: b.pressed ? "lightgreen" : "lightgray",
-                    }}
-                  >
-                    B{i}
-                    <span style={{ opacity: b.value }}>{b.value}</span>
-                  </div>
-                );
-              })}
-            </div>
-            <div>
-              <span>Axes</span>
-              <div>{gamepad.axes[0]}</div>
-              <div>{gamepad.axes[1]}</div>
-              <div>{gamepad.axes[2]}</div>
-              <div>{gamepad.axes[3]}</div>
+              <div
+                style={{
+                  gap: 20,
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr 1fr 1fr",
+                }}
+              >
+                {gamepad.buttons.map((b, i) => {
+                  return (
+                    <div
+                      style={{
+                        padding: 15,
+                        display: "flex",
+                        alignItems: "center",
+                        flexDirection: "column",
+                        backgroundColor: b.pressed ? "lightgreen" : "lightgray",
+                      }}
+                    >
+                      B{i}: {b.value}
+                    </div>
+                  );
+                })}
+              </div>
+              <div
+                style={{
+                  gap: 20,
+                  marginTop: 20,
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                }}
+              >
+                <div
+                  style={{
+                    padding: 20,
+                    display: "flex",
+                    alignItems: "center",
+                    flexDirection: "column",
+                    backgroundColor: "lightgrey",
+                  }}
+                >
+                  <div>{gamepad.axes[0]}</div>
+                  <div>{gamepad.axes[1]}</div>
+                </div>
+                <div
+                  style={{
+                    padding: 20,
+                    display: "flex",
+                    alignItems: "center",
+                    flexDirection: "column",
+                    backgroundColor: "lightgrey",
+                  }}
+                >
+                  <div>{gamepad.axes[2]}</div>
+                  <div>{gamepad.axes[3]}</div>
+                </div>
+              </div>
             </div>
           </div>
         </Fragment>
