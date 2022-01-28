@@ -1,14 +1,8 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import { useEffect, useState, Fragment } from "react";
+import { NextPage } from "next";
+import { useState, Fragment } from "react";
 import styles from "../styles/Home.module.css";
 
-// TODO: Quando o controle for desconectado parar o event loop
-
 const Home: NextPage = () => {
-  const [status, setStatus] = useState(false);
-
   const [gamepad, setGamepad] = useState<Gamepad | null>(null);
 
   if (typeof window !== "undefined") {
@@ -17,7 +11,7 @@ const Home: NextPage = () => {
       gameLoop();
     });
 
-    window.addEventListener("gamepaddisconnected", (e) => {
+    window.addEventListener("gamepaddisconnected", () => {
       setGamepad(null);
     });
   }
@@ -32,7 +26,7 @@ const Home: NextPage = () => {
   return (
     <Fragment>
       <h1>Leandro Xbox One Controller</h1>
-      <h2>Status: {gamepad?.connected ? "Conectado" : "Disconectado"}</h2>
+      <h2>Status: {gamepad?.connected ? "Connected" : "Disconnected"}</h2>
       {gamepad && (
         <Fragment>
           <div>
@@ -40,15 +34,26 @@ const Home: NextPage = () => {
               <span>ID: </span>
               <span>{gamepad.id}</span>
             </div>
-            <div>
-              <span>Bottuns</span>
+            <div
+              style={{
+                gap: 20,
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+              }}
+            >
               {gamepad.buttons.map((b, i) => {
                 return (
-                  <div>
-                    <span>Button: {i} </span>
-                    <span>touched: {b.touched ? "Sim" : "Não"} </span>
-                    <span>pressed: {b.pressed ? "Sim" : "Não"} </span>
-                    <span>value: {b.value} </span>
+                  <div
+                    style={{
+                      padding: 5,
+                      display: "flex",
+                      alignItems: "center",
+                      flexDirection: "column",
+                      backgroundColor: b.pressed ? "lightgreen" : "lightgray",
+                    }}
+                  >
+                    B{i}
+                    <span style={{ opacity: b.value }}>{b.value}</span>
                   </div>
                 );
               })}
