@@ -1,0 +1,20 @@
+.container {
+  display: grid;
+  gap: 25px;
+  padding: 25px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.projectCard {
+  cursor: pointer;
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #f9ff47;
+  border: solid 0.2px #a4a9ad;
+}
+
+.projectCard:hover {
+  background-color: #fbff85;
+}

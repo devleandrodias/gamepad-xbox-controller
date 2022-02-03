@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  background-color: #d6d6d6;
+}
+
+.link {
+  cursor: pointer;
+  padding: 20px;
+  background-color: #d6d6d6;
+}
+
+.link:hover {
+  background-color: #a3a3a3;
+}
