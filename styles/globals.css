@@ -1,5 +1,9 @@
 html,
 body {
+  /* Project colors */
+  color: #fafafa;
+  background-color: #212121;
+
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
