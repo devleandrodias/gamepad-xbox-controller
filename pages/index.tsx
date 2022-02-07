@@ -1,6 +1,12 @@
 import { NextPage } from "next";
 import { Header } from "../app/layout/header.layout";
 
+import { CardHome } from "../app/pages/home/cards/card-home";
+import { CardContact } from "../app/pages/home/cards/card-contact";
+import { CardGallery } from "../app/pages/home/cards/card-gallery";
+import { CardProjects } from "../app/pages/home/cards/card-projects";
+import { CardContactMe } from "../app/pages/home/cards/card-about-me";
+
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -10,11 +16,11 @@ const Home: NextPage = () => {
         <div className={styles.card}>
           <Header />
         </div>
-        <div className={styles.card}>Home</div>
-        <div className={styles.card}>About Me</div>
-        <div className={styles.card}>Projects</div>
-        <div className={styles.card}>Gallery</div>
-        <div className={styles.card}>Contact</div>
+        <CardHome />
+        <CardContactMe />
+        <CardProjects />
+        <CardGallery />
+        <CardContact />
       </main>
     </div>
   );
