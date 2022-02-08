@@ -24,3 +24,7 @@
 .card:first-child {
   margin-top: 25px;
 }
+
+.roundImage {
+  border-radius: 15px;
+}
